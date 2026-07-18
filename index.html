@@ -342,8 +342,21 @@
       contadorEl.textContent = count ?? data.length;
     }
 
-    // contador de caracteres
+    // filtro de caracteres: letras do português, números, espaço e
+    // pontuação básica. Todo o resto é descartado na digitação/colagem.
+    const PROIBIDOS = /[^a-zA-ZáàâãäéèêëíìîïóòôõöúùûüçÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ0-9 .,:;'?!/ºª-]/g;
+    function limpar(s) {
+      return s.replace(/[\r\n]+/g, " ").replace(PROIBIDOS, "").replace(/ {2,}/g, " ");
+    }
     const ta = document.getElementById("mensagem");
+    for (const campo of [document.getElementById("nome"), document.getElementById("titulo"), ta]) {
+      campo.addEventListener("input", () => {
+        const limpo = limpar(campo.value);
+        if (limpo !== campo.value) campo.value = limpo;
+      });
+    }
+
+    // contador de caracteres
     ta.addEventListener("input", () => {
       document.getElementById("chars").textContent = ta.value.length;
     });
@@ -364,9 +377,9 @@
       btn.disabled = true;
       btn.textContent = "Protocolando…";
       const { error } = await supabase.from("assinaturas").insert({
-        nome: form.nome.value.trim(),
-        titulo: form.titulo.value.trim() || null,
-        mensagem: form.mensagem.value.trim(),
+        nome: limpar(form.nome.value).trim(),
+        titulo: limpar(form.titulo.value).trim() || null,
+        mensagem: limpar(form.mensagem.value).trim(),
       });
       btn.disabled = false;
       btn.textContent = "Assinar a Retratação";
