@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desculpa pela Cartinha — Carta de Retratação às Brasileiras e aos Brasileiros</title>
+  <meta name="description" content="Um solene pedido de desculpas coletivo pela Carta pela Democracia de 2022. Assine e peça perdão você também.">
+  <meta property="og:title" content="Desculpa pela Cartinha">
+  <meta property="og:description" content="Carta de Retratação às Brasileiras e aos Brasileiros. Assine e peça perdão você também.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://desculpapelacartinha.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --parchment: #f6f0e2;
+      --parchment-dark: #ede4cf;
+      --ink: #2b2416;
+      --ink-soft: #5a4f3a;
+      --accent: #7a1f1f;      /* lacre */
+      --gold: #a8853a;
+      --card: #fffdf6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.65;
+    }
+    /* textura sutil de papel */
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(90,79,58,.05) 1px, transparent 1px);
+      background-size: 5px 5px;
+      z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Cabeçalho ---------- */
+    header { text-align: center; padding: 72px 0 40px; }
+    .brasao { font-size: 42px; letter-spacing: 8px; color: var(--gold); }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(38px, 7vw, 64px);
+      line-height: 1.1;
+      margin: 18px 0 10px;
+    }
+    header .subtitulo {
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 22px;
+    }
+    .divisor {
+      display: flex; align-items: center; gap: 14px;
+      margin: 34px auto; max-width: 420px;
+      color: var(--gold);
+    }
+    .divisor::before, .divisor::after {
+      content: ""; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .divisor::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+    /* ---------- Carta ---------- */
+    .carta {
+      background: var(--card);
+      border: 1px solid #d8cbaa;
+      box-shadow: 0 2px 24px rgba(43,36,22,.10), 0 0 0 8px var(--parchment-dark);
+      padding: clamp(28px, 6vw, 64px);
+      margin-bottom: 64px;
+      position: relative;
+    }
+    .carta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .carta p { margin-bottom: 20px; text-align: justify; text-indent: 2em; }
+    .carta p.sem-indent { text-indent: 0; }
+    .carta .abertura {
+      font-style: italic; text-align: center; text-indent: 0;
+      color: var(--ink-soft); margin-bottom: 30px;
+    }
+    .lacre {
+      position: absolute; top: -26px; right: 32px;
+      width: 72px; height: 72px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #a03434, var(--accent) 60%, #571212);
+      color: #f3d9d9;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px;
+      text-align: center; line-height: 1.15;
+      box-shadow: 0 4px 10px rgba(43,36,22,.35);
+      transform: rotate(-8deg);
+    }
+    .assinatura-final {
+      text-align: center; font-style: italic; margin-top: 36px; color: var(--ink-soft);
+    }
+
+    /* ---------- Contador ---------- */
+    .contador { text-align: center; margin-bottom: 64px; }
+    .contador .numero {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 9vw, 84px);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .contador .rotulo { font-style: italic; color: var(--ink-soft); font-size: 21px; }
+
+    /* ---------- Formulário ---------- */
+    section h2.titulo-secao {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .subtitulo-secao {
+      text-align: center; font-style: italic; color: var(--ink-soft); margin-bottom: 36px;
+    }
+    form {
+      background: var(--card);
+      border: 1px solid #d8cbaa;
+      padding: clamp(24px, 5vw, 44px);
+      margin-bottom: 72px;
+      box-shadow: 0 2px 16px rgba(43,36,22,.08);
+    }
+    label { display: block; font-weight: 500; margin-bottom: 6px; }
+    .opcional { font-weight: 400; font-style: italic; color: var(--ink-soft); font-size: 16px; }
+    input[type=text], textarea {
+      width: 100%;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      color: var(--ink);
+      background: var(--parchment);
+      border: 1px solid #c9b98f;
+      padding: 12px 14px;
+      margin-bottom: 22px;
+    }
+    input:focus, textarea:focus { outline: 2px solid var(--gold); }
+    textarea { min-height: 120px; resize: vertical; }
+    .contagem-chars { text-align: right; font-size: 15px; color: var(--ink-soft); margin-top: -18px; margin-bottom: 18px; }
+    .hp { position: absolute; left: -9999px; opacity: 0; }
+    button {
+      display: block;
+      margin: 0 auto;
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--card);
+      background: var(--accent);
+      border: none;
+      padding: 14px 42px;
+      cursor: pointer;
+      letter-spacing: .5px;
+      transition: background .2s;
+    }
+    button:hover { background: #571212; }
+    button:disabled { background: #a89a7c; cursor: default; }
+    .aviso {
+      display: none;
+      text-align: center; font-style: italic;
+      padding: 14px; margin-top: 20px;
+      border: 1px dashed var(--gold);
+    }
+    .aviso.ok { display: block; color: #2d5a2d; }
+    .aviso.erro { display: block; color: var(--accent); }
+
+    /* ---------- Mural ---------- */
+    .mural { display: grid; grid-template-columns: 1fr; gap: 22px; margin-bottom: 40px; }
+    @media (min-width: 640px) { .mural { grid-template-columns: 1fr 1fr; } }
+    .pedido {
+      background: var(--card);
+      border: 1px solid #d8cbaa;
+      border-top: 3px solid var(--gold);
+      padding: 24px 26px;
+      box-shadow: 0 2px 10px rgba(43,36,22,.07);
+    }
+    .pedido .msg { font-style: italic; margin-bottom: 16px; }
+    .pedido .msg::before { content: "“"; color: var(--gold); font-size: 26px; }
+    .pedido .msg::after { content: "”"; color: var(--gold); font-size: 26px; }
+    .pedido .quem { font-weight: 500; text-align: right; }
+    .pedido .titulo { display: block; font-weight: 400; font-style: italic; color: var(--ink-soft); font-size: 16px; }
+    .mural-vazio, .mural-carregando {
+      grid-column: 1 / -1; text-align: center; font-style: italic; color: var(--ink-soft); padding: 30px 0;
+    }
+    .nota-exemplo {
+      text-align: center; font-size: 15px; font-style: italic;
+      color: var(--ink-soft); margin-bottom: 60px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 56px;
+      color: var(--ink-soft);
+      font-size: 16px;
+      font-style: italic;
+      border-top: 1px solid #d8cbaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brasao">⚖ ✦ ⚖</div>
+      <h1>Desculpa pela Cartinha</h1>
+      <p class="subtitulo">Carta de Retratação às Brasileiras e aos Brasileiros</p>
+      <div class="divisor">❧</div>
+    </header>
+
+    <article class="carta">
+      <div class="lacre">MEA<br>CULPA<br>2022</div>
+      <h2>Aos que aguentaram as consequências,</h2>
+      <p class="abertura">Nós, abaixo-assinados, cidadãs e cidadãos outrora imbuídos do mais elevado espírito cívico, vimos por meio desta, com o coração contrito e a caneta envergonhada, apresentar nossas mais solenes desculpas.</p>
+
+      <p>Em agosto do ano da graça de 2022, movidos pelo mais nobre dos impulsos e pela mais completa ausência de bola de cristal, apusemos nossas assinaturas — algumas com firma reconhecida, outras com filtro de story — em documento de vasta circulação e vastíssima solenidade, conhecido nos autos como <em>a Cartinha</em>.</p>
+
+      <p>Acreditávamos, à época, estar erguendo um escudo intransponível em defesa das instituições. Descobrimos, com o passar dos anos e dos inquéritos, que a relação entre assinar um manifesto e o resultado prático dele pode guardar a mesma distância que separa a ementa de um processo do seu centésimo volume de apenso.</p>
+
+      <p>Reconhecemos que a democracia, essa senhora que juramos defender em papel timbrado, seguiu sua vida sem nos consultar, e que nossa contribuição para os rumos da nação teve eficácia comparável à de uma nota de repúdio em rede social: imensa no momento do clique, imponderável em tudo o mais.</p>
+
+      <p class="sem-indent" style="text-align:center; font-style:italic; margin: 30px 0;">Por isso, perante o povo, a história e o grupo da família,<br><strong>pedimos desculpa pela cartinha.</strong></p>
+
+      <p>Comprometemo-nos, doravante, a exercer maior parcimônia assinatural, reservando nossa rubrica a documentos de eficácia comprovada, tais como recibos de aluguel, listas de presença e abaixo-assinados para instalação de quebra-molas.</p>
+
+      <p class="assinatura-final">Assinam esta retratação, com a devida vênia e o devido constrangimento, os penitentes abaixo.</p>
+    </article>
+
+    <div class="contador">
+      <div class="numero" id="contador-num">—</div>
+      <div class="rotulo">penitentes já pediram desculpa</div>
+    </div>
+
+    <section id="assinar">
+      <h2 class="titulo-secao">Peça perdão você também</h2>
+      <p class="subtitulo-secao">A absolvição não é garantida, mas o constrangimento é coletivo.</p>
+      <form id="form-desculpa" autocomplete="off">
+        <label for="nome">Nome do penitente</label>
+        <input type="text" id="nome" name="nome" maxlength="80" required placeholder="Fulano de Tal">
+
+        <label for="titulo">Título, ocupação ou cidade <span class="opcional">(opcional, quanto mais pomposo melhor)</span></label>
+        <input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Bacharel arrependido, São Paulo/SP">
+
+        <label for="mensagem">Seu pedido de desculpas</label>
+        <textarea id="mensagem" name="mensagem" maxlength="500" required placeholder="Assinei com o coração e me arrependi com a razão…"></textarea>
+        <div class="contagem-chars"><span id="chars">0</span>/500</div>
+
+        <!-- honeypot anti-spam -->
+        <input class="hp" type="text" name="website" tabindex="-1" aria-hidden="true">
+
+        <button type="submit" id="btn-enviar">Assinar a Retratação</button>
+        <div class="aviso" id="aviso"></div>
+      </form>
+    </section>
+
+    <section id="mural">
+      <h2 class="titulo-secao">Mural dos Arrependidos</h2>
+      <p class="subtitulo-secao">Pedidos de desculpa devidamente homologados pela moderação.</p>
+      <div class="mural" id="lista-pedidos">
+        <div class="mural-carregando">Carregando as penitências…</div>
+      </div>
+      <p class="nota-exemplo" id="nota-exemplo" style="display:none;">✻ Assinaturas ilustrativas — o site ainda não foi conectado ao banco de dados.</p>
+    </section>
+
+    <footer>
+      <p>desculpapelacartinha.com — sátira, humor e arrependimento cívico.</p>
+      <p>Nenhuma democracia foi salva na produção deste site.</p>
+    </footer>
+  </div>
+
+  <script type="module">
+    // ============================================================
+    // CONFIGURAÇÃO — preencha com os dados do seu projeto Supabase
+    // (Settings → API). A "anon key" é pública por design; a
+    // segurança vem das políticas RLS descritas no SETUP.md.
+    // ============================================================
+    const SUPABASE_URL = "";      // ex.: "https://abcdefgh.supabase.co"
+    const SUPABASE_ANON_KEY = ""; // ex.: "eyJhbGciOi..."
+
+    const configurado = SUPABASE_URL && SUPABASE_ANON_KEY;
+    let supabase = null;
+    if (configurado) {
+      const { createClient } = await import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm");
+      supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+
+    const exemplos = [
+      { nome: "Fulano de Tal", titulo: "Bacharel arrependido, São Paulo/SP", mensagem: "Assinei achando que era a última linha de defesa da República. Era um PDF." },
+      { nome: "Beltrana da Silva", titulo: "Ex-otimista, Belo Horizonte/MG", mensagem: "Imprimi, emoldurei e pendurei na sala. Hoje serve para cobrir uma rachadura na parede, com eficácia semelhante." },
+      { nome: "Sicrano Pereira", titulo: "Signatário compulsivo", mensagem: "Peço desculpas à democracia, ao Estado de Direito e ao cartório, que reconheceu firma em vão." },
+    ];
+
+    const lista = document.getElementById("lista-pedidos");
+    const contadorEl = document.getElementById("contador-num");
+
+    function esc(s) {
+      const d = document.createElement("div");
+      d.textContent = s ?? "";
+      return d.innerHTML;
+    }
+
+    function render(pedidos) {
+      if (!pedidos.length) {
+        lista.innerHTML = '<div class="mural-vazio">Ainda não há penitentes homologados. Seja o primeiro a pedir perdão.</div>';
+        return;
+      }
+      lista.innerHTML = pedidos.map(p => `
+        <div class="pedido">
+          <div class="msg">${esc(p.mensagem)}</div>
+          <div class="quem">— ${esc(p.nome)}${p.titulo ? `<span class="titulo">${esc(p.titulo)}</span>` : ""}</div>
+        </div>`).join("");
+    }
+
+    async function carregar() {
+      if (!configurado) {
+        render(exemplos);
+        contadorEl.textContent = exemplos.length;
+        document.getElementById("nota-exemplo").style.display = "block";
+        return;
+      }
+      const { data, error, count } = await supabase
+        .from("assinaturas")
+        .select("nome, titulo, mensagem", { count: "exact" })
+        .eq("aprovado", true)
+        .order("created_at", { ascending: false })
+        .limit(200);
+      if (error) {
+        lista.innerHTML = '<div class="mural-vazio">Não foi possível carregar o mural. Tente novamente mais tarde.</div>';
+        contadorEl.textContent = "—";
+        return;
+      }
+      render(data);
+      contadorEl.textContent = count ?? data.length;
+    }
+
+    // contador de caracteres
+    const ta = document.getElementById("mensagem");
+    ta.addEventListener("input", () => {
+      document.getElementById("chars").textContent = ta.value.length;
+    });
+
+    // envio
+    const form = document.getElementById("form-desculpa");
+    const aviso = document.getElementById("aviso");
+    const btn = document.getElementById("btn-enviar");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      aviso.className = "aviso";
+      if (form.website.value) return; // honeypot: bot preencheu, ignora
+      if (!configurado) {
+        aviso.textContent = "O site ainda não está conectado ao banco de dados — siga o SETUP.md.";
+        aviso.classList.add("erro");
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "Protocolando…";
+      const { error } = await supabase.from("assinaturas").insert({
+        nome: form.nome.value.trim(),
+        titulo: form.titulo.value.trim() || null,
+        mensagem: form.mensagem.value.trim(),
+      });
+      btn.disabled = false;
+      btn.textContent = "Assinar a Retratação";
+      if (error) {
+        aviso.textContent = "Houve um erro ao protocolar sua penitência. Tente novamente.";
+        aviso.classList.add("erro");
+      } else {
+        aviso.textContent = "Penitência protocolada com sucesso. Aguarde a homologação da moderação para figurar no mural.";
+        aviso.classList.add("ok");
+        form.reset();
+        document.getElementById("chars").textContent = "0";
+      }
+    });
+
+    carregar();
+  </script>
+</body>
+</html>
