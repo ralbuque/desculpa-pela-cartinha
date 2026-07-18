@@ -384,7 +384,9 @@
       btn.disabled = false;
       btn.textContent = "Assinar a Retratação";
       if (error) {
-        aviso.textContent = "Houve um erro ao protocolar sua penitência. Tente novamente.";
+        aviso.textContent = error.code === "23505"
+          ? "Esta penitência já consta dos autos. Arrependa-se com as suas próprias palavras."
+          : "Houve um erro ao protocolar sua penitência. Tente novamente.";
         aviso.classList.add("erro");
       } else {
         aviso.textContent = "Penitência protocolada e publicada com efeito imediato. Bem-vindo ao Mural dos Arrependidos.";
