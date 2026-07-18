@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- fundo pergaminho -->
+  <rect width="64" height="64" rx="12" fill="#f6f0e2"/>
+  <!-- lacre de cera -->
+  <defs>
+    <radialGradient id="cera" cx="0.35" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#a03434"/>
+      <stop offset="0.6" stop-color="#7a1f1f"/>
+      <stop offset="1" stop-color="#571212"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="26" fill="url(#cera)"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#571212" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="20" fill="none" stroke="#f3d9d9" stroke-width="1" opacity="0.55"/>
+  <!-- MC = mea culpa -->
+  <text x="32" y="40" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="21" fill="#f3d9d9">MC</text>
+</svg>
