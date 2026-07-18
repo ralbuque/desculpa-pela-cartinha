@@ -277,13 +277,14 @@
     </footer>
   </div>
 
-  <script src="config.js"></script>
   <script type="module">
     // ============================================================
-    // CONFIGURAÇÃO — as chaves do Supabase ficam em config.js
-    // (fora do git; veja config.example.js e o SETUP.md).
+    // CONFIGURAÇÃO — dados do projeto Supabase (Settings → API).
+    // A anon key é pública por design: ela vai ao navegador de todo
+    // visitante. A segurança vem das políticas RLS (ver SETUP.md).
     // ============================================================
-    const { SUPABASE_URL = "", SUPABASE_ANON_KEY = "" } = window.CONFIG ?? {};
+    const SUPABASE_URL = "https://pobjoqwoxwakkqxbcvjk.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvYmpvcXdveHdha2txeGJjdmprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzNjM4MDAsImV4cCI6MjA5OTkzOTgwMH0.bCgSMu7pjxSB34ZF36RREXdMoxqBeD3Q9XIiOvw4604";
 
     const configurado = SUPABASE_URL && SUPABASE_ANON_KEY;
     let supabase = null;
