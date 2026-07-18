@@ -31,12 +31,7 @@ create policy "leitura de aprovados" on assinaturas
 ```
 
 3. Em **Settings → API**, copie a **Project URL** e a **anon public key**.
-4. No `index.html`, preencha as duas constantes no topo do `<script>`:
-
-```js
-const SUPABASE_URL = "https://SEU-PROJETO.supabase.co";
-const SUPABASE_ANON_KEY = "sua-anon-key";
-```
+4. Copie `config.example.js` para `config.js` e preencha as duas chaves. O `config.js` está no `.gitignore` (não sobe para o git), mas **precisa ser incluído no deploy** junto com o `index.html`.
 
 A anon key é pública por design — a segurança vem das políticas acima (ninguém consegue aprovar, editar ou apagar nada pelo navegador).
 
