@@ -264,7 +264,7 @@
 
     <section id="mural">
       <h2 class="titulo-secao">Mural dos Arrependidos</h2>
-      <p class="subtitulo-secao">Pedidos de desculpa devidamente homologados pela moderação.</p>
+      <p class="subtitulo-secao">Pedidos de desculpa publicados com efeito imediato e fé pública.</p>
       <div class="mural" id="lista-pedidos">
         <div class="mural-carregando">Carregando as penitências…</div>
       </div>
@@ -374,10 +374,11 @@
         aviso.textContent = "Houve um erro ao protocolar sua penitência. Tente novamente.";
         aviso.classList.add("erro");
       } else {
-        aviso.textContent = "Penitência protocolada com sucesso. Aguarde a homologação da moderação para figurar no mural.";
+        aviso.textContent = "Penitência protocolada e publicada com efeito imediato. Bem-vindo ao Mural dos Arrependidos.";
         aviso.classList.add("ok");
         form.reset();
         document.getElementById("chars").textContent = "0";
+        carregar();
       }
     });
 

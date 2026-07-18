@@ -42,9 +42,19 @@ A anon key é pública por design — a segurança vem das políticas acima (nin
 
 ## 2. Moderação
 
-No painel do Supabase: **Table Editor → assinaturas**. Assinaturas novas chegam com `aprovado = false`. Para publicar, marque `aprovado = true`; para rejeitar, delete a linha. Dica: filtre por `aprovado = false` para ver só a fila pendente.
+Modo atual: **publicação imediata** (após rodar `migracao-aprovacao-imediata.sql` no SQL Editor). Assinaturas novas entram com `aprovado = true` e aparecem direto no mural.
 
-(Se quiser depois um painel próprio de moderação com login, dá para adicionar — me avise.)
+Para retirar uma assinatura do ar: **Table Editor → assinaturas**, mude `aprovado` para `false` (ou delete a linha). Só linhas com `aprovado = true` aparecem no site.
+
+Para voltar ao modo de aprovação prévia, rode no SQL Editor:
+
+```sql
+alter table assinaturas alter column aprovado set default false;
+drop policy "envio publico" on assinaturas;
+create policy "envio publico" on assinaturas
+  for insert to anon
+  with check (aprovado = false);
+```
 
 ## 3. Hospedagem + domínio
 
