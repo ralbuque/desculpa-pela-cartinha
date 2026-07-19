@@ -176,8 +176,12 @@
 
     /* ---------- Mural ---------- */
     .mural { display: grid; grid-template-columns: 1fr; gap: 22px; margin-bottom: 40px; }
-    @media (min-width: 640px) { .mural { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 640px) { .mural { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
     .pedido {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
       background: var(--card);
       border: 1px solid #d8cbaa;
       border-top: 3px solid var(--gold);
